@@ -1,12 +1,15 @@
 import { Schema, model } from "mongoose";
 
-const CategoryScheam = new Schema({
+const CategorySchema = new Schema(
+  {
     category_name: {
-        type: String,
-        unique: true,
-        required: true,
-    }  
-},{timestamps: false, versionKey: false})
+      type: String,
+      unique: true,
+      required: true,
+    },
+  },
+  { timestamps: false, versionKey: false }
+);
 
-const  Category = model("category", CategoryScheam)
-export  {Category}
+const Category = model("category", CategorySchema);
+export { Category };
