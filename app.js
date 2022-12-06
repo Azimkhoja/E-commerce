@@ -1,11 +1,11 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import mongoose from 'mongoose';
-import './controllers/contr.js'
-import {routes} from './routers/index.router.js'
+const  express = require('express')
+const  dotenv = require('dotenv')
+const  mongoose =require('mongoose');
+const  routes = require('./routers/index.router.js')
 dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 5000
+app.use(express.json())
 app.use(routes)
     async function go(){
         try {

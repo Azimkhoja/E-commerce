@@ -1,13 +1,11 @@
-import { Router } from "express";
-import * as CategoriesRouter  from './category.routes'
-import * as Sub_CategoriesRouter  from './sub_category.routes'
-import * as ProductsRouter  from './product.routes'
-const router = Router()
+const Router = require("express");
+const categoryRouter = require("./category.routes");
+const subCategoryRouter = require("./sub_category.routes");
+const productRouter = "./product.routes";
+const routes = Router();
 
+routes.use("/categories", categoryRouter);
+// routes.use("/sub_categories", subCategoryRouter);
+// routes.use("/products", productRouter);
 
-
-
-
-router.use('/categories', CategoriesRouter)
-router.use('/sub_categories', Sub_CategoriesRouter)
-router.use('/products', ProductsRouter)
+module.exports = routes;

@@ -1,9 +1,10 @@
-import { Router } from "express";
-const router = Router();
+// const Router = require("express");
+// const router = Router();
 
-router.post("/add");
-router.get("/");
-router.put("/:id");
-router.delete("/:id");
+// router.post("/add");
+// router.get("/");
+// router.put("/:id");
+// router.delete("/:id");
 
-export { router };
+// // const Sub_CategoriesRouter = router;
+// module.exports = router;
