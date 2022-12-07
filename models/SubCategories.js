@@ -1,14 +1,14 @@
-const { Schema, model, SchemaTypes } = require("mongoose");
+const { Schema, model, SchemaTypes,  } = require("mongoose");
 
 const subCategorySchema = new Schema(
   {
     category_id: {
       type: SchemaTypes.ObjectId,
       required: true,
+      ref: "categories",
     },
     sub_category_name: {
       type: String,
-      ref: "categories",
     },
   },
   { versionKey: false, timestamps: false }

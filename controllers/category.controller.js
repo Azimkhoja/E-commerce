@@ -1,4 +1,6 @@
-const Category = require('../models/Categories')
+const checkID = require('../helpers/checkID');
+const Category = require('../models/Categories');
+const SubCategory = require('../models/SubCategories');
 const addCategory = async (req, res) => {
   try {
     const category = await Category(req.body)
@@ -11,8 +13,13 @@ const addCategory = async (req, res) => {
 const getCategory = async (req, res) => {
   try {
     const {id} = req.params
-    const category = await Category.findById(id)
-    if(!category)
+    if(!checkID(id)){
+      return res.send({status: 400, message: "invalid id"})
+    }
+
+    // const category = await Category.findById(id).populate("sub_categories")
+    const category = await SubCategory.findById({category_id: id}).populate("category_id")
+    if(category.length == 0)
       return res.send({status: 400, message: "Category not found"})
     res.send({status: 201, category})
 
